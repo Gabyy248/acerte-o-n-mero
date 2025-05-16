@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe o número</title>
+</head>
+<body>
+    <script>
+        const numeroSecreto = Math.floor(Math.random() * 50) + 1
+        let tentativas = 5
+        alert("Adivinhe o número de 1 e 50")
+ 
+        while (tentativas > 0) {
+            const palpiteStr = prompt(`Você tem ${tentativas} tentativas. Digite seu palpite`)
+            const palpite = parseInt(palpiteStr)
+            tentativas --
+ 
+            if (isNaN(palpite)) {
+                alert('Digite um número válido')
+                tentativas++
+                continue
+            }
+ 
+            if (palpite === numeroSecreto) {
+                alert(`Acertou! O número era ${numeroSecreto}`)
+                break
+            }else if (palpite < numeroSecreto) {
+                alert("Número baixo!")
+            }else {
+                alert("Número alto")
+            }
+        }
+ 
+        if (tentativas === 0) {
+            alert(`Você perdeu! O número era ${numeroSecreto}.`)
+        }
+ 
+    </script>
+</body>
+</html>
